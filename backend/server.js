@@ -4,7 +4,7 @@ const cors = require('cors')
 const path = require('path')
 
 // Heroku uses process.env.PORT
-const PORT = precoss.env.PORT || 1339
+const PORT = process.env.PORT || 1339
 
 const buildFolder = path.join(__dirname, '../build')
 
