@@ -1,10 +1,19 @@
 const admin = require("firebase-admin");
 
-const serviceAccount = require("./firebase-key.json");
+let privateKey;
+
+if( process.env.PRIVATE_KEY ) {
+    privateKey = JSON.parse(process.env.PRIVATE_KEY)
+} else {
+    privateKey = require("./firebase-key.json")
+}
+
 
  admin.initializeApp({
    credential: admin.credential.cert(serviceAccount)
  });
+
+
 
  function getDatabase() {
 	return admin.firestore()
