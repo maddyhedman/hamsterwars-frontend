@@ -1,11 +1,11 @@
 const admin = require("firebase-admin");
 
-let privateKey;
+let serviceAccount;
 
 if( process.env.PRIVATE_KEY ) {
     privateKey = JSON.parse(process.env.PRIVATE_KEY)
 } else {
-    privateKey = require("./firebase-key.json")
+    serviceAccount = require("./admin-key.json")
 }
 
 

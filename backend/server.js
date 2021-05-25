@@ -6,7 +6,7 @@ const path = require('path')
 // Heroku uses process.env.PORT
 const PORT = process.env.PORT || 1339
 
-const buildFolder = path.join(__dirname, '../build')
+const buildFolder = path.join(__dirname, '../build/static')
 
 
 //Middleware
