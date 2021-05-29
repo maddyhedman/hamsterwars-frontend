@@ -3,6 +3,12 @@ const app = express()
 const cors = require('cors')
 const path = require('path')
 
+const hamsters = require('./route/hamsters.js')
+const matches = require('./route/matches.js')
+const winners = require('./route/winners.js')
+const losers = require('./route/losers.js')
+const matchWinners = require('./route/matchWinners.js')
+
 // Heroku uses process.env.PORT
 const PORT = process.env.PORT || 1339
 
@@ -24,6 +30,14 @@ app.use( express.static(buildFolder) )
 app.get('/', (req, res)=>{
     res.send('hello from server')
 });
+
+//REST API
+app.use('/hamsters', hamsters)
+app.use('/matches', matches)
+app.use('/winners', winners)
+app.use('/losers', losers)
+app.use('/matchWinners', matchWinners)
+
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, '../build/index.html'))

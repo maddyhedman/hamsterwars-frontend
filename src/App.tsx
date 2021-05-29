@@ -7,10 +7,10 @@ import Header from './components/Header/Header'
 import Gallery from './components/Gallery/Gallery'
 import Add from './components/AddNew/Add'
 import Battle from './components/Battle/Battle'
-import {HamsterItem} from './components/Gallery/Gallery'
 
 
-const HamsterData : HamsterItem[] = []
+
+
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
    <Header/>
    <Switch>
  
-			<Route path="/gallery" render ={() => < Gallery items ={ HamsterData }/>} />
+			<Route path="/gallery"> < Gallery/> </Route>
 			<Route path="/add-new"> < Add /> </Route>
       <Route path="/battle"> < Battle /> </Route>
       <Route path="/"> < Home /> </Route>

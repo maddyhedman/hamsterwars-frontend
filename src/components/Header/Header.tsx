@@ -7,7 +7,7 @@ const Header = () => {
 	
 		<main>
 		<header>
-			<img src="../src/img/header.png" alt=""/>
+			<img src="../src/img/header.png" alt="bild"/>
 		 <nav>
       <Link to="/"> HOME </Link>
       <Link to="/gallery">GALLERY</Link>
