@@ -1,10 +1,24 @@
 import './Header.css'
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+
 
 const Header = () => {
 	return (
-		<div>
+	
+		<main>
+		<header>
 			<img src="../src/img/header.png" alt=""/>
-		</div>
+		 <nav>
+      <Link to="/"> HOME </Link>
+      <Link to="/gallery">GALLERY</Link>
+      <Link to="/add-new">ADD NEW</Link>
+    	</nav> 
+		</header>
+		</main>
+	
+
+	
+	
 	)
 }
 

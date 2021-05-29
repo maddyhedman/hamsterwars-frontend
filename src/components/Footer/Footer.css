@@ -1,5 +1,8 @@
 .Footer {
 	background-color: #123C69;
-	
+	position: revert;
+	width: 100vh;
+    height: 13vh;
+   
 
 }
