@@ -1,0 +1,47 @@
+.container {
+    display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	position: absolute;
+	Width: 100% ;
+    Height: 300px;  
+}
+
+
+.image {
+
+	position: relative;
+	width: 200px;
+
+}
+
+.img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.infoOnHover:hover {
+opacity: 1;
+}
+
+.infoOnHover {
+	color: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+
+}
+
+.infoOnHover p {
+	margin: 0;
+	padding: 0;
+
+}

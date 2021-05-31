@@ -1,25 +1,26 @@
-main {
+.header {
 	
-	background-color: aquamarine;
+	background-color: #ffffff;
 	padding: 0.5em;
 	display: flex;
 	flex-direction:row;
 	align-items: center;
 	justify-content: right;
-
+	height: 6vh;
+	border-style: solid;
 }
 
-nav a {
+.header nav a {
 	padding: 0.2em 1.5em;
 	transition: background-color 0.3s linear;
 	text-decoration: none;
 
 }
 
-nav a:hover {
+.header nav a:hover {
 	background-color: #EDC7B7;
 }
 
-img {
+/*.header img {
 	height: 100vh;
-}
+} */

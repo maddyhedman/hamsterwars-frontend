@@ -12,20 +12,24 @@ import Battle from './components/battle/Battle'
 
 
 
+
 function App() {
   return (
     <Router>
 
     <div className="App">
-   <Header/>
-   <Switch>
+    <Header/> 
+  
+     <Switch>
  
 			<Route path="/gallery"> < Gallery/> </Route>
+      <Route path="/add-hamster"> < Add/> </Route>
 			<Route path="/add-new"> < Add /> </Route>
       <Route path="/battle"> < Battle /> </Route>
       <Route path="/"> < Home /> </Route>
     
-		</Switch>
+		</Switch> 
+ 
 
 
       <Footer />

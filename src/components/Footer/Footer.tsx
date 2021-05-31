@@ -1,5 +1,5 @@
 import './Footer.css'
-import Instagram from '../../img/Instagram.png';
+
 
 const Footer = () => {
 	return( 

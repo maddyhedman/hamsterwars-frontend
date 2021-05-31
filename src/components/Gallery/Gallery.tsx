@@ -1,35 +1,55 @@
+import './Gallery.css'
 import { useEffect, useState } from 'react'
 import { Hamster } from '../../types/Hamster'
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+
 
 
 
 const Gallery = () => {
 	const [hamsters, setHamsters] = useState<null | Hamster[]>(null)
 
+	
+
 	useEffect(() => {
-		async function getHamsters() {
-			const response = await fetch('/hamsters', { method: 'GET' })
-			const data: Hamster[] = await response.json()
-			// Använd "mountedRef" här
-			setHamsters(data)
-			// OBS! Bättre att hämta datan i App-komponenten, eftersom den alltid är MOUNTED
-		}
-		getHamsters()
-	}, [])
+        async function getHamsters() {
+            const response = await fetch('/hamsters', { method: 'GET' })
+            const data: Hamster[] = await response.json()
+            setHamsters(data)
+        }
+        getHamsters()
+        
+    }, [])
+
 
 
 	return (
 		<div>
+			<Link to="/add-hamster"><button>Add Hamster</button></Link>
+			<section className="container">
+				
 			{hamsters ? hamsters.map(hamster => (
 					<div key={hamster.id}>
-						{hamster.name} <br/>
-			
-						<img src={`/img//img/${hamster.imgName}`}  alt="hamster bild"/>
-						<button> info </button>
+						<div className="image">
+						<img className="img" src={`/img/img/${hamster.imgName}`}  alt="hamster bild"/>
+							<div className="infoOnHover">
+							<p>Name: {hamster.age}</p>
+							<p>Favfood:{hamster.favfood}</p>
+							<p>Loves:{hamster.loves}</p>
+							<p>Defeats:{hamster.defeats}</p>
+							<p>Games{hamster.games}</p>
+							</div>
+						</div> <br/>
+						<p><strong>Hover over for info</strong></p>
+						<button><strong>REMOVE</strong></button>
+						<p>{hamster.name} </p><br/>
+						
+						
 					</div>
 				))
-				: 'Hämtar hamsters från API...'
+				:  'Hämtar hamsters från API...'
 			}
+			</section>
 		</div>
 	)
 }
