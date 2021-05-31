@@ -9,18 +9,34 @@ import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 const Gallery = () => {
 	const [hamsters, setHamsters] = useState<null | Hamster[]>(null)
 
-	
-
-	useEffect(() => {
-        async function getHamsters() {
+	 async function getHamsters() {
             const response = await fetch('/hamsters', { method: 'GET' })
             const data: Hamster[] = await response.json()
             setHamsters(data)
-        }
+		}
+		
+
+	
+        
+	
+
+	useEffect(() => {
+       
         getHamsters()
         
-    }, [])
+	}, [])
 
+    async function deleteHamsters(id:string) {
+		const response = await fetch('/hamsters/' + id, { method: 'DELETE' })
+           
+			getHamsters()
+			
+        }
+     
+
+
+	
+	
 
 
 	return (
@@ -33,7 +49,7 @@ const Gallery = () => {
 						<div className="image">
 						<img className="img" src={`/img/img/${hamster.imgName}`}  alt="hamster bild"/>
 							<div className="infoOnHover">
-							<p>Name: {hamster.age}</p>
+							<p>Age: {hamster.age}</p>
 							<p>Favfood:{hamster.favfood}</p>
 							<p>Loves:{hamster.loves}</p>
 							<p>Defeats:{hamster.defeats}</p>
@@ -41,7 +57,7 @@ const Gallery = () => {
 							</div>
 						</div> <br/>
 						<p><strong>Hover over for info</strong></p>
-						<button><strong>REMOVE</strong></button>
+						<button onClick= {() => deleteHamsters(hamster.id)}><strong>REMOVE</strong></button>
 						<p>{hamster.name} </p><br/>
 						
 						
