@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-const UpdateAddress = () => {
+const UpdateHamster = () => {
 	const [name, setName] = useState('')
 	const [nameTouched, setNameTouched] = useState(false)
 
@@ -24,10 +24,7 @@ const UpdateAddress = () => {
 	
 		nameErrorMessage = 'Pls type a name.'
 	}
-	// let nameClass = ''
-	// if( nameTouched ) {
-	// 	nameClass = (nameIsValid ? 'valid' : 'error')
-	// }
+	
 
 	const allowedAgeCharacters = "+0123456789 -"
 	let ageIsValid: boolean = true
@@ -39,10 +36,7 @@ const UpdateAddress = () => {
 		ageIsValid = false
 		ageErrorMessage = 'Pls type an age with numbers.'
 	}
-	// let ageClass = ''
-	// if( ageTouched ) {
-	// 	ageClass = (ageIsValid ? 'valid' : 'error')
-	// }
+	
 
 	let foodIsValid: boolean = true
 	let foodErrorMessage: string = ''
@@ -61,7 +55,23 @@ const UpdateAddress = () => {
 	}
 
 
-	let formIsInvalid = !nameIsValid || !ageIsValid
+	let formIsInvalid = !nameIsValid || !ageIsValid || !foodIsValid || !lovesIsValid
+
+
+
+	async function addHamster( url = '', data = {}) {
+
+        const response = await fetch('/hamsters' , { 
+            method: 'POST', 
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify(data) });
+        //fixa statusmeddelande om det går fel. 
+        alert("hamster posted")
+        
+        return response.json(); // parses JSON response into native JavaScript objects
+        
+        //redirect till gallery
+    }
 
 
 	return (
@@ -104,62 +114,21 @@ const UpdateAddress = () => {
 					<input type="text"
 						onBlur={() => setLovesTouched(true)}
 						onChange={e => setLoves(e.target.value)}
-						value={age}
+						value={loves}
 						
 					/>
 					{lovesTouched ? <div className="message"> {lovesErrorMessage} </div> : null}
 			</div>
 			<div>
-					<button disabled={formIsInvalid}> Spara ändringar </button>
+					<button onClick={() => addHamster('/hamsters', {name, age, food, loves})}> Spara ändringar </button>
 				</div>
 			</div>
 	
 	)}
 
-export default UpdateAddress
+export default UpdateHamster
 
 	
 
-		{/* // 	const [inputText, setInputText] = useState('default')
-		// 	const [uncontrolledText, setUncontrolledText] = useState('')
-		// 	return(
-		// <section>
-		// <p>
-		// 	<label>
-	    //      Namn på hamster:
-		// 	 <input onChange={event => {
-		// 			console.log('Uncontrolled change', event.target.value);
-		// 			setUncontrolledText(event.target.value)
-		// 		}
-		// 	} /> (uncontrolled)
-		// 	</label>
-		// 	<br/>
-		// 	Du skrev: {uncontrolledText}
-		// </p>
-
-		// <label>
-		// 	<p>
-	    //      Ålder på hamster:
-		// 	 <input onChange={event => {
-		// 			console.log('Uncontrolled change', event.target.value);
-		// 			setUncontrolledText(event.target.value)
-		// 		}
-		// 	} /> (uncontrolled)
-		// 	</label>
-		// 	<br/>
-		// 	Du skrev: {uncontrolledText}
-		// </p>
-
-			{/* <form action="">
-				<input type="text" placeholder="Name"/> <br/>
-				<input type="text"placeholder="Age"/><br/>
-				<input type="text"placeholder="Favfood"/><br/>
-				<input type="text"placeholder="Loves"/><br/>
-				<p>Här ska man kunna importera en img</p><br/>
-			   <button type="submit" value ="submit">Add Hamster</button>
-			</form> */}
-// 		</section>
-// 	)
-// }
-
-// export default Form */}
+		
+	
