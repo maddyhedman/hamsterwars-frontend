@@ -1,12 +1,20 @@
 
 
 .Footer {
-	background-color: #123C69;
+	position: fixed;
+	left: 0;
+	bottom: 0;
 	width: 100%;
+	background-color : #123C69;
+	text-align: center;
 	height: 13vh;
+	/* background-color: #123C69;
+	width: 100%;
+	
 	display: flex;
 	align-items: center;
-	position: sticky;
+	position: relative;
+} */
 }
 
 .Footer p {
