@@ -23,7 +23,7 @@ function App() {
      <Switch>
  
 			<Route path="/gallery"> < Gallery/> </Route>
-      <Route path="/add-hamster"> < Add/> </Route>
+      
 			<Route path="/add-new"> < Add /> </Route>
       <Route path="/battle"> < Battle /> </Route>
       <Route path="/"> < Home /> </Route>
