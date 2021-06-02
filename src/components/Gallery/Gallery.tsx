@@ -34,11 +34,6 @@ const Gallery = () => {
         }
      
 
-
-	
-	
-
-
 	return (
 		<div>
 			<Link to="/add-hamster"><button>Add Hamster</button></Link>
