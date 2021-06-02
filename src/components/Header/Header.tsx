@@ -1,12 +1,16 @@
 import './Header.css'
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+// import Hamsterwars from '../img/home.jpg'
+import Hamster from '../../img/hamsterimg.jpg';
 
 const Header = () => {
 	return (
 	
 		
 		<header className="header">
-		 <img src={require("/Users/maddyhedman/Desktop/frontend projekt/hamsterwars-frontend/src/img/header.png")} alt="bild"/>
+			<div className="header-img">
+		<img src={Hamster} alt="img of hamster" />
+			</div>
 		 <nav>
 		
       <Link to="/"> HOME </Link>

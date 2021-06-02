@@ -36,7 +36,7 @@ const Gallery = () => {
 
 	return (
 		<div>
-			<Link to="/add-hamster"><button>Add Hamster</button></Link>
+			<Link to="/add-new"><button>Add Hamster</button></Link>
 			<section className="container">
 				
 			{hamsters ? hamsters.map(hamster => (

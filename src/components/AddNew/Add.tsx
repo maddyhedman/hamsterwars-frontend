@@ -1,11 +1,15 @@
 import { useState } from 'react'
+import Image from '/Users/maddyhedman/Desktop/frontend projekt/hamsterwars-frontend/src/img/ricky.jpg'
+import {Hamster} from '../../types/Hamster'
 
 
 const UpdateHamster = () => {
+	const [id, setId] = useState('')
+
 	const [name, setName] = useState('')
 	const [nameTouched, setNameTouched] = useState(false)
 
-	const [age, setAge] = useState('')
+	const [age, setAge] = useState(Number)
 	const [ageTouched, setAgeTouched] = useState(false)
 
 	const [food, setFood] = useState('')
@@ -13,6 +17,14 @@ const UpdateHamster = () => {
 
 	const [loves, setLoves] = useState('')
 	const [lovesTouched, setLovesTouched] = useState(false)
+
+	const [img, setImg] = useState('')
+	const [imgTouched, setImgTouched] = useState(false)
+
+	const [wins, setWins] = useState(0)
+	const [defeats, setDefeats] = useState(0)
+	const [games, setGames] = useState(0)
+	
 
 
 
@@ -28,7 +40,7 @@ const UpdateHamster = () => {
 
 	const allowedAgeCharacters = "+0123456789 -"
 	let ageIsValid: boolean = true
-	let ageErrorMessage: string = ''
+	let ageErrorMessage: number = ''
 	if( age === '' ) {
 		ageIsValid = false
 		ageErrorMessage = 'Pls type an age.'
@@ -54,13 +66,32 @@ const UpdateHamster = () => {
 		lovesErrorMessage = 'Pls type hobby.'
 	}
 
+	let imgIsValid: boolean = true
+	let imgErrorMessage: string = ''
+	if( img === '' ) {
+		imgIsValid = false
+	
+		imgErrorMessage = 'No image.'
+	}
 
-	let formIsInvalid = !nameIsValid || !ageIsValid || !foodIsValid || !lovesIsValid
+
+	let formIsInvalid = !nameIsValid || !ageIsValid || !foodIsValid || !lovesIsValid ||!imgIsValid
 
 
 
-	async function addHamster( url = '', data = {}) {
+	async function addHamster() {
+		let data: Hamster = {
+			id: id,
+			name: name,
+			age: age,
+			favFood: food,
+			loves: loves,
+			imgName: img,
+			wins: wins,
+			defeats: defeats,
+			games: games
 
+		}
         const response = await fetch('/hamsters' , { 
             method: 'POST', 
             headers: {'Content-Type': 'application/json'}, 
@@ -120,7 +151,17 @@ const UpdateHamster = () => {
 					{lovesTouched ? <div className="message"> {lovesErrorMessage} </div> : null}
 			</div>
 			<div>
-					<button onClick={() => addHamster('/hamsters', {name, age, food, loves})}> Spara ändringar </button>
+					<label> Img:</label>
+					<input type="url"
+						onBlur={() => setImgTouched(true)}
+						onChange={e => setImg(e.target.value)}
+						value='hamster-4.jpg'
+						
+					/>
+					{imgTouched ? <div className="message"> {imgErrorMessage} </div> : null}
+			</div>
+			<div>
+					<button onClick={() => addHamster('/hamsters', {name, age, food, loves, img})}> Spara ändringar </button>
 				</div>
 			</div>
 	
