@@ -14,9 +14,10 @@ const Header = () => {
 		 <nav>
 		
       <Link to="/"> HOME </Link>
+	  <Link to ="/battle">BATTLE</Link>
       <Link to="/gallery">GALLERY</Link>
       <Link to="/add-new">ADD NEW</Link>
-	  <Link to ="/battle">BATTLE</Link>
+
       
 	  </nav>
 		</header>

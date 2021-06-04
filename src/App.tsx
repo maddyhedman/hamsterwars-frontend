@@ -24,9 +24,7 @@ const [serverDown, setServerDown] = useState(false)
   .catch(function(error){
     if(error.response){
       setServerDown(true)
-      // console.log(error.response.data)
-      // console.log(error.response.status)
-      // console.log(error.response.headers)
+     
     } 
   });
 
@@ -43,9 +41,9 @@ const [serverDown, setServerDown] = useState(false)
      <Switch>
     
 			<Route path="/gallery"> < Gallery/> </Route>
-      
-			<Route path="/add-new"> < Add /> </Route>
       <Route path="/battle"> < Battle /> </Route>
+			<Route path="/add-new"> < Add /> </Route>
+     
       <Route path="/"> < Home /> </Route>
     
 		</Switch> 
