@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Header from './components/Header/Header'
 import Gallery from './components/Gallery/Gallery'
 import Add from './components/AddNew/Add'
-import Battle from './components/battle2/Battle'
+import Battle from './components/battle/Battle'
 import axios from 'axios'
 import {useState} from 'react'
 
