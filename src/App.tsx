@@ -8,6 +8,8 @@ import Gallery from './components/Gallery/Gallery'
 import Add from './components/AddNew/Add'
 import Battle from './components/battle/Battle'
 import axios from 'axios'
+import {useState} from 'react'
+
 
 
 
@@ -15,12 +17,16 @@ import axios from 'axios'
 
 function App() {
 
+const [serverDown, setServerDown] = useState(false)
+
+
   axios.get('/hamsters')
   .catch(function(error){
     if(error.response){
-      console.log(error.response.data)
-      console.log(error.response.status)
-      console.log(error.response.headers)
+      setServerDown(true)
+      // console.log(error.response.data)
+      // console.log(error.response.status)
+      // console.log(error.response.headers)
     } 
   });
 
@@ -32,9 +38,10 @@ function App() {
 
     <div className="App">
     <Header/> 
-  
+     {serverDown ? <h2 className="serverDown">Server is down, pls try again later or click on the logo to refresh</h2> : ''}
+      
      <Switch>
- 
+    
 			<Route path="/gallery"> < Gallery/> </Route>
       
 			<Route path="/add-new"> < Add /> </Route>
