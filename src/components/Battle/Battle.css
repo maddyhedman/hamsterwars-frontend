@@ -1,0 +1,35 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+.hamsterImg {
+	height: 200px;
+}
+
+.container1 {
+	display: flex;
+	padding: 0vh 0vh;
+}
+
+.hamsterImg{
+	padding: 10vh;
+}
+
+.vs {
+	display: flex;
+	align-items: center;
+}
+
+.battle {
+	display: flex;
+	justify-content: center;
+}
+
+.HamsterInfo {
+	font-size: 2vh;
+	padding: 10px;
+}
+
+

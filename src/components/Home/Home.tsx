@@ -1,24 +1,37 @@
 import Hamster from '../../img/home.jpg';
 import './Home.css';
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 
 const Home = () => {
-	return(
+
+
 	
-		<div>
-		<h1>What is Lorem Ipsum?
-     	Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-		 </h1>
-		<h2>
-		Här kan du spela om den sötaste hamstern men du kan även se alla tillgängliga hamstrar och lägga till egna
-		</h2>
+	
 
-		<Link to="/battle"><button>BATTLE</button></Link>
-	    <Link to="/gallery"><button>GALLERY</button>  </Link>   
-		<img src={Hamster} alt="img of hamster" className="Hamster-img"/>
+	return(
+	<div className="home-container">
+		<div className="home-text">
+			<br/>
+			<br/>
+			<h1>Welcome to Hamsterwars!
+		 	</h1>
+			<h2>
+				<br/>
+			Here you can battle <br/> for the cutest hamster or <br/> watch all the hamsters 
+				<br/> available in our gallery!
+			</h2>	
+				<div className="btn-container">
+					<Link to="/battle"><button className="home-button">BATTLE</button></Link>
+	    			<Link to="/gallery"><button className="home-button">GALLERY</button>  </Link> 
+				</div>
 		</div>
-
+	
+		  
+			<img src={Hamster} alt="img of hamster" className="Hamster-img"/>
+		
+	</div>
 	)
 }
 

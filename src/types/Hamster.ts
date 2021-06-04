@@ -2,7 +2,7 @@
 	id: string,
 	name: string,
 	age: number,
- 	favfood: string,
+ 	favFood: string,
 	loves: string,
 	imgName: string,
 	wins: number,

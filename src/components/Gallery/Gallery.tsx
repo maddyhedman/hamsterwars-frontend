@@ -1,7 +1,7 @@
 import './Gallery.css'
 import { useEffect, useState } from 'react'
 import { Hamster } from '../../types/Hamster'
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {  Link} from "react-router-dom";
 
 
 
@@ -16,10 +16,6 @@ const Gallery = () => {
 		}
 		
 
-	
-        
-	
-
 	useEffect(() => {
        
         getHamsters()
@@ -27,7 +23,7 @@ const Gallery = () => {
 	}, [])
 
     async function deleteHamsters(id:string) {
-		const response = await fetch('/hamsters/' + id, { method: 'DELETE' })
+		await fetch('/hamsters/' + id, { method: 'DELETE' })
            
 			getHamsters()
 			
@@ -36,24 +32,32 @@ const Gallery = () => {
 
 	return (
 		<div>
-			<Link to="/add-new"><button>Add Hamster</button></Link>
+			<Link to="/add-new"><button className="home-button">Add Hamster</button></Link>
 			<section className="container">
 				
 			{hamsters ? hamsters.map(hamster => (
 					<div key={hamster.id}>
-						<div className="image">
-						<img className="img" src={`/img/img/${hamster.imgName}`}  alt="hamster bild"/>
+				      <div className="gallery-btn">
+						<button 
+							onClick= {() => deleteHamsters(hamster.id)}>
+							<strong>X</strong>
+						</button>
+						</div>
+						<div className="image">		
+					
+						
+						<img className="img" src={`img/${hamster.imgName}`}  alt="hamster bild"/>
 							<div className="infoOnHover">
 							<p>Age: {hamster.age}</p>
-							<p>Favfood:{hamster.favfood}</p>
+							<p>Favfood:{hamster.favFood}</p>
 							<p>Loves:{hamster.loves}</p>
 							<p>Defeats:{hamster.defeats}</p>
 							<p>Games{hamster.games}</p>
 							</div>
 						</div> <br/>
 						<p><strong>Hover over for info</strong></p>
-						<button onClick= {() => deleteHamsters(hamster.id)}><strong>REMOVE</strong></button>
-						<p>{hamster.name} </p><br/>
+				
+						<p>Name:{hamster.name} </p><br/>
 						
 						
 					</div>

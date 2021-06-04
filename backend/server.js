@@ -12,7 +12,7 @@ const matchWinners = require('./route/matchWinners.js')
 // Heroku uses process.env.PORT
 const PORT = process.env.PORT || 1339
 
-const buildFolder = path.join(__dirname, '../build/static')
+const buildFolder = path.join(__dirname, '../build')
 
 
 //Middleware

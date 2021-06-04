@@ -1,3 +1,28 @@
 .Hamster-img {
 	height: 200px;
 }
+
+.home-text {
+	padding-top: 5vh;
+}
+
+.home-container {
+	display: flex;
+	justify-content:space-evenly;
+	align-items: center;
+}
+
+ .home-button {
+	font-size: 2vh;
+	background-color: #EDC7B7;
+	padding: 7px 20px;
+	border-radius: 45%;
+	color: black;
+} 
+
+.btn-container {
+	display:flex;
+	justify-content: space-evenly;
+	padding: 5vh
+}
+
